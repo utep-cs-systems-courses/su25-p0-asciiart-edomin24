@@ -26,3 +26,22 @@ void print_triangle(int leftCol, int size)
   }
 }
 
+void print_arrow(int leftCol, int size)
+{
+  int tHeight = (size + 1) / 2;   /*top half of size for triangle*/
+  int sHeight = size - tHeight;  /*bottom half for square (shaft)*/
+  int center = leftCol + tHeight; /*shaft center*/
+  
+  for (int row = 0; row < tHeight; row++){ /*triangle logic*/
+    int minCol = center - row;
+    int maxCol = center + row;
+    for (int col = 0; col < minCol; col++) putchar(' ');
+    for (int col = minCol; col <= maxCol; col++) putchar('*');
+    putchar('\n');
+  }
+  for (int row = 0; row < sHeight; row++){ /*square logic*/
+    for (int col = 0; col < center; col++) putchar(' ');
+    putchar('*');
+    putchar('\n');
+  }
+}
